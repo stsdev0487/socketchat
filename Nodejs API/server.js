@@ -14,36 +14,37 @@ const routes = require('./web/routes');
 const appConfig = require('./config/app-config');
 
 
-class Server{
+class Server {
 
-    constructor(){
-        this.app = express();
-        this.http = http.Server(this.app);
-        this.socket = socketio(this.http);
-    }
+  constructor() {
+    this.app = express();
+    this.http = http.Server(this.app);
+    this.socket = socketio(this.http);
+  }
 
-    appConfig(){
-        new appConfig(this.app).includeConfig();
-    }
+  appConfig() {
+    new appConfig(this.app).includeConfig();
+  }
 
-    /* Including app Routes starts*/
-    includeRoutes(){
-        new routes(this.app).routesConfig();
-        new socketEvents(this.socket).socketConfig();
-    }
-    /* Including app Routes ends*/
+  /* Including app Routes starts*/
+  includeRoutes() {
+    new routes(this.app).routesConfig();
+    new socketEvents(this.socket).socketConfig();
+  }
 
-    appExecute(){
-        this.appConfig();
-        this.includeRoutes();
+  /* Including app Routes ends*/
 
-        const port =  process.env.PORT || 4000;
-        const host = `167.99.60.125`;
+  appExecute() {
+    this.appConfig();
+    this.includeRoutes();
 
-        this.http.listen(port, host, () => {
-            console.log(`Listening on http://${host}:${port}`);
-        });
-    }
+    const port = process.env.PORT || 80;
+    const host = '0.0.0.0';
+
+    this.http.listen(port, host, () => {
+      console.log(`Listening on http://${host}:${port}`);
+    });
+  }
 
 }
 

@@ -1,6 +1,6 @@
 import * as io from 'socket.io-client';
+import url from '../config/url';
 const events = require('events');
-
 
 class ChatSocketServer {
 
@@ -10,7 +10,7 @@ class ChatSocketServer {
     // Connecting to Socket Server
     establishSocketConnection(userId) {
         try {
-            this.socket = io(`http://167.99.60.125:4000`, {
+            this.socket = io(url, {
                 query: `userId=${userId}`
             });
         } catch (error) {
