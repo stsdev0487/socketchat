@@ -90,6 +90,7 @@ class Conversation extends Component {
           toUserId: newSelectedUser.id,
         });
         event.target.value = '';
+        //event.target.reset(event);
       }
     }
   }
@@ -161,7 +162,7 @@ class Conversation extends Component {
           </div>
 
           <div className="message-typer">
-              <textarea className="message form-control" placeholder="Type and hit Enter" onKeyPress={this.sendMessage} />
+              <input type="text" className="message form-control" placeholder="Type and hit Enter" onKeyPress={this.sendMessage} />
           </div>
         </div>
       </div>
