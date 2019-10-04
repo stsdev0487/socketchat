@@ -1,0 +1,32 @@
+
+.my-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 15px;
+  flex-direction: row;
+  width: 100%;
+  color: white;
+
+  .user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .avatar {
+      margin-right: 15px;
+      img {
+        max-height: 40px;
+      }
+    }
+  }
+
+  .toggle {
+    .toggle-button {
+      color: white;
+      outline: none;
+    }
+  }
+}
+
+

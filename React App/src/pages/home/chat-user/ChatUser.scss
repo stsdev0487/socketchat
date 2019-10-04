@@ -1,0 +1,37 @@
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px;
+  flex-direction: row;
+  width: 100%;
+  cursor: pointer;
+  color: white;
+
+  .user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .avatar {
+      margin-right: 15px;
+      img {
+        max-height: 40px;
+      }
+    }
+
+    .username-message {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
+  &.active {
+    background-color: #FFEB3B;
+    color: #212121;
+  }
+}
+
+
