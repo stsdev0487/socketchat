@@ -1,5 +1,5 @@
 import * as axios from 'axios';
- 
+
 class ChatHttpServer {
 
     getUserId() {
@@ -38,7 +38,7 @@ class ChatHttpServer {
     login(userCredential) {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.post('http://192.168.3.236:4000/login', userCredential);
+                const response = await axios.post('http://167.99.60.125:4000/login', userCredential);
                 resolve(response.data);
             } catch (error) {
                 reject(error);
@@ -49,7 +49,7 @@ class ChatHttpServer {
     checkUsernameAvailability(username) {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.post('http://192.168.3.236:4000/usernameAvailable', {
+                const response = await axios.post('http://167.99.60.125:4000/usernameAvailable', {
                     username: username
                 });
                 resolve(response.data);
@@ -58,11 +58,11 @@ class ChatHttpServer {
             }
         });
     }
-    
+
     register(userCredential) {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.post('http://192.168.3.236:4000/register', userCredential);
+                const response = await axios.post('http://167.99.60.125:4000/register', userCredential);
                 resolve(response.data);
             } catch (error) {
                 reject(error);
@@ -73,7 +73,7 @@ class ChatHttpServer {
     userSessionCheck(userId) {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.post('http://192.168.3.236:4000/userSessionCheck', {
+                const response = await axios.post('http://167.99.60.125:4000/userSessionCheck', {
                     userId: userId
                 });
                 resolve(response.data);
@@ -86,7 +86,7 @@ class ChatHttpServer {
     getMessages(userId, toUserId) {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.post('http://192.168.3.236:4000/getMessages', {
+                const response = await axios.post('http://167.99.60.125:4000/getMessages', {
                     userId: userId,
                     toUserId: toUserId
                 });
@@ -96,7 +96,7 @@ class ChatHttpServer {
             }
         });
     }
-    
+
 }
 
 export default new ChatHttpServer();

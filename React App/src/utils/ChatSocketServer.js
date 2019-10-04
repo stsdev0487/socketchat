@@ -3,14 +3,14 @@ const events = require('events');
 
 
 class ChatSocketServer {
-    
+
     socket = null
     eventEmitter = new events.EventEmitter();
 
     // Connecting to Socket Server
     establishSocketConnection(userId) {
         try {
-            this.socket = io(`http://192.168.3.236:4000`, {
+            this.socket = io(`http://167.99.60.125:4000`, {
                 query: `userId=${userId}`
             });
         } catch (error) {
