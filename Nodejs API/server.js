@@ -9,9 +9,9 @@ const express = require("express");
 const http = require('http');
 const socketio = require('socket.io');
 
-const socketEvents = require('./web/socket'); 
-const routes = require('./web/routes'); 
-const appConfig = require('./config/app-config'); 
+const socketEvents = require('./web/socket');
+const routes = require('./web/routes');
+const appConfig = require('./config/app-config');
 
 
 class Server{
@@ -22,7 +22,7 @@ class Server{
         this.socket = socketio(this.http);
     }
 
-    appConfig(){        
+    appConfig(){
         new appConfig(this.app).includeConfig();
     }
 
@@ -31,14 +31,14 @@ class Server{
         new routes(this.app).routesConfig();
         new socketEvents(this.socket).socketConfig();
     }
-    /* Including app Routes ends*/  
+    /* Including app Routes ends*/
 
     appExecute(){
         this.appConfig();
         this.includeRoutes();
 
         const port =  process.env.PORT || 4000;
-        const host = `192.168.3.236`;      
+        const host = `167.99.60.125`;
 
         this.http.listen(port, host, () => {
             console.log(`Listening on http://${host}:${port}`);
@@ -46,6 +46,6 @@ class Server{
     }
 
 }
-    
+
 const app = new Server();
 app.appExecute();
